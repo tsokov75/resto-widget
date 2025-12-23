@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <title>Ресто – BGN / EUR</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div id="resto-widget" role="application" aria-label="Калкулатор за ресто">
+  <div class="header">
+    <div class="eta">
+      <strong>ETA.BG</strong><br>
+      Остават <span id="eta-days">–</span> дни до 31.12.2025
+    </div>
+    <button id="minBtn" class="icon-btn" title="Минимизирай" aria-label="Минимизирай">–</button>
+  </div>
+
+  <div id="content">
+    <label for="due">Сума за плащане (BGN)</label>
+    <input id="due" inputmode="decimal" placeholder="32.83" autocomplete="off">
+
+    <label>Платено в</label>
+    <div class="currency" role="tablist" aria-label="Валута на плащане">
+      <button id="btnBGN" class="active" role="tab" aria-selected="true">BGN</button>
+      <button id="btnEUR" role="tab" aria-selected="false">EUR</button>
+    </div>
+
+    <label for="paid">Подадена сума (<span id="paidCur">BGN</span>)</label>
+    <input id="paid" inputmode="decimal" placeholder="100" autocomplete="off">
+
+    <div class="quick-wrap">
+      <div class="quick-title">Бързи бутони</div>
+      <div id="quickBtns" class="quick-btns" aria-label="Бързи банкноти/монети"></div>
+      <div class="quick-actions">
+        <button id="btnPaidClear" class="ghost" type="button">Изчисти подадена сума</button>
+      </div>
+    </div>
+
+    <button id="calc" class="primary" type="button">Изчисли</button>
+
+    <div class="result" aria-live="polite">
+      <div>Ресто (BGN): <strong id="outBGN">–</strong></div>
+      <div>Ресто (EUR): <strong id="outEUR">–</strong></div>
+      <div id="warn" class="warn" hidden></div>
+    </div>
+
+    <label class="chk">
+      <input type="checkbox" id="showDetails" checked>
+      <span>Покажи разбивка по номинали</span>
+    </label>
+
+    <div class="details" id="detailsWrap">
+      <div>
+        <strong>BGN</strong>
+        <div id="detBGN">–</div>
+      </div>
+      <div>
+        <strong>EUR</strong>
+        <div id="detEUR">–</div>
+      </div>
+    </div>
+  </div>
+
+  <div id="minimized" hidden>
+    <button id="openBtn" class="primary" type="button">Ресто</button>
+  </div>
+</div>
+
+<script src="app.js"></script>
+</body>
+</html>
